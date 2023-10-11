@@ -1,12 +1,20 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTheme } from 'next-themes';
 
 import { Button } from '../ui/button';
 
 export default function ThemeToggleBtn() {
   const { setTheme, theme } = useTheme();
+  useEffect(() => {
+    const themeMedia = window.matchMedia('(prefers-color-scheme: light)');
+    if (themeMedia.matches) {
+      setTheme('light');
+    } else {
+      setTheme('dark');
+    }
+  }, [setTheme]);
   return (
     <Button
       variant="outline"
