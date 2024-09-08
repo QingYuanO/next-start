@@ -1,9 +1,23 @@
-import ThemeToggleBtn from '@/components/ThemeProvider/ThemeToggleBtn';
+import { CTA } from '@/components/landing/cta';
+import { FAQ } from '@/components/landing/faq';
+import { FeatureSection } from '@/components/landing/feature-section';
+import { HeroSection } from '@/components/landing/hero-section';
+import { LogoCloud } from '@/components/landing/logo-cloud';
+import { PricingSection } from '@/components/landing/pricing';
+import { SocialProof } from '@/components/landing/social-proof';
 
-export default function Home() {
+function LandingPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <ThemeToggleBtn />
-    </main>
+    <>
+      <HeroSection />
+      {/* <LogoCloud />
+      <FeatureSection />
+      <SocialProof />
+      <CTA />
+      <FAQ />
+      <PricingSection /> */}
+    </>
   );
 }
+
+export default LandingPage;
