@@ -24,7 +24,7 @@ export default function ThemeToggleBtn() {
     return null;
   }
   return (
-    <Button variant="outline" className="text-lg" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} size="icon">
+    <Button variant="ghost" className="text-lg" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} size="icon">
       {theme === 'light' ? <i className="i-lucide-sun"></i> : <i className="i-lucide-moon"></i>}
     </Button>
   );

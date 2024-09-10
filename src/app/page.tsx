@@ -10,12 +10,12 @@ function LandingPage() {
   return (
     <>
       <HeroSection />
-      {/* <LogoCloud />
+      <LogoCloud />
       <FeatureSection />
       <SocialProof />
       <CTA />
       <FAQ />
-      <PricingSection /> */}
+      <PricingSection />
     </>
   );
 }

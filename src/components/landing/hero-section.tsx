@@ -17,7 +17,7 @@ export const HeroSection: FC = () => {
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button size="lg" className="w-full sm:w-auto" asChild>
-              <a href="#start">Sign In</a>
+              <a href="#start">Create Account</a>
             </Button>
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
               <code className="rounded p-1">Start now</code>

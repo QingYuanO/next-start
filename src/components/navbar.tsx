@@ -11,7 +11,7 @@ export function Navbar() {
       <div className="mx-auto flex h-14 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
         <div className="mr-4 hidden md:flex">
           <a href="/" className="mr-6 flex items-center space-x-2">
-            <span className="hidden font-bold sm:inline-block">Convert Fast</span>
+            <span className="hidden font-bold sm:inline-block">Next Start</span>
           </a>
           <nav className="flex items-center space-x-6 text-sm">
             <a href="/about">Documents</a>
@@ -21,8 +21,8 @@ export function Navbar() {
         </div>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="flex w-full flex-1 items-center gap-2.5 md:w-auto md:flex-none">
-            {/* <Button variant="default">Sign In</Button> */}
             <ThemeToggleBtn />
+            <Button variant='ghost'>Sign In</Button>
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
