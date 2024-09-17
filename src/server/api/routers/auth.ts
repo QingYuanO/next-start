@@ -37,7 +37,7 @@ export const authRouter = createTRPCRouter({
     return { success: 'Confirmation email sent!' };
   }),
   checkeLogin: publicProcedure.input(LoginSchema).mutation(async ({ input }) => {
-    const { email } = input;
+    const { email, password } = input;
 
     const existingUser = await getUserByEmail(email);
 
@@ -53,7 +53,13 @@ export const authRouter = createTRPCRouter({
       return { success: 'Confirmation email sent!', isEmailVerified: false };
     }
 
-    return { success: '', isEmailVerified: true };
+    const passwordsMatch = await bcrypt.compare(password, existingUser.password);
+
+    if (!passwordsMatch) {
+      throw new TRPCError({ code: 'BAD_REQUEST', message: 'Invalid password!' });
+    }
+
+    return { isEmailVerified: true };
   }),
   newVerification: publicProcedure.input(z.object({ token: z.string() })).query(async ({ input }) => {
     const { token } = input;

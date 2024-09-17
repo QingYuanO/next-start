@@ -5,11 +5,11 @@ import { Input } from '@/components/ui/input';
 
 export function Footer() {
   return (
-    <footer className="border-t bg-background">
+    <footer id="contact" className="border-t bg-background">
       <div className="mx-auto max-w-7xl px-6 py-8">
         <div className="flex flex-wrap">
           {/* Company Info */}
-          <div className="w-full text-center md:w-1/4 md:text-left">
+          <div className="w-full text-center md:w-1/3 md:text-left">
             <h5 className="mb-6 font-bold uppercase">Company</h5>
             <ul className="mb-4">
               <li className="mt-2">
@@ -31,7 +31,7 @@ export function Footer() {
           </div>
 
           {/* Products */}
-          <div className="w-full text-center md:w-1/4 md:text-left">
+          <div className="w-full text-center md:w-1/3 md:text-left">
             <h5 className="mb-6 font-bold uppercase">Products</h5>
             <ul className="mb-4">
               <li className="mt-2">
@@ -53,7 +53,7 @@ export function Footer() {
           </div>
 
           {/* Support */}
-          <div className="w-full text-center md:w-1/4 md:text-left">
+          {/* <div className="w-full text-center md:w-1/4 md:text-left">
             <h5 className="mb-6 font-bold uppercase">Support</h5>
             <ul className="mb-4">
               <li className="mt-2">
@@ -72,10 +72,10 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Newsletter */}
-          <div className="w-full text-center md:w-1/4 md:text-left">
+          <div className="w-full text-center md:w-1/3 md:text-left">
             <h5 className="mb-6 font-bold uppercase">Stay connected</h5>
             <div className="flex flex-col">
               <Input type="email" placeholder="Enter your email" className="mb-2" />
@@ -106,7 +106,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 text-center">
-          <p className="text-base text-gray-400">© 2024 Convertfast. All rights reserved.</p>
+          <p className="text-base text-gray-400">© 2024 Next Start. All rights reserved.</p>
         </div>
       </div>
     </footer>

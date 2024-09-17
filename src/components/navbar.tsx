@@ -1,9 +1,15 @@
 import Link from 'next/link';
 import { getServerAuthSession } from '@/server/auth';
-import { Menu } from 'lucide-react';
+import { LogIn, LogOut, Menu } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 import { LoginButton } from './auth/login-button';
 import { LogoutButton } from './auth/logout-button';
@@ -14,30 +20,32 @@ export async function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-14 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
-        <div className="mr-4 hidden md:flex">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mr-4 flex">
           <a href="/" className="mr-6 flex items-center space-x-2">
-            <span className="hidden font-bold sm:inline-block">Next Start</span>
+            <span className="inline-block font-bold">Next Start</span>
           </a>
-          <nav className="flex items-center space-x-6 text-sm">
-            <a href="/about">Documents</a>
-            <a href="/products">Components</a>
-            <a href="/contact">Contact</a>
-          </nav>
         </div>
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+        <nav className="hidden items-center space-x-6 text-sm sm:flex">
+          <Link href="#features">Features</Link>
+          <Link href="#pricing">Pricing</Link>
+          <Link href="#contact">Contact</Link>
+        </nav>
+        <div className="flex items-center justify-between space-x-2">
           <div className="flex w-full flex-1 items-center gap-2.5 md:w-auto md:flex-none">
             <ThemeToggleBtn />
 
-            {session ? (
-              <LogoutButton isConfirm>
-                <Button variant="ghost">Logout</Button>
-              </LogoutButton>
-            ) : (
-              <LoginButton asChild>
-                <Button variant="ghost">Login</Button>
-              </LoginButton>
-            )}
+            <div className="hidden md:block">
+              {session ? (
+                <LogoutButton isConfirm>
+                  <Button variant="ghost">Logout</Button>
+                </LogoutButton>
+              ) : (
+                <LoginButton asChild>
+                  <Button variant="ghost">Login</Button>
+                </LoginButton>
+              )}
+            </div>
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -48,19 +56,33 @@ export async function Navbar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem>
-                <a href="/about" className="w-full">
-                  About
+                <a href="#features" className="w-full">
+                  Features
                 </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="/products" className="w-full">
-                  Products
+                <a href="#pricing" className="w-full">
+                  Pricing
                 </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="/contact" className="w-full">
+                <a href="#contact" className="w-full">
                   Contact
                 </a>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                {session ? <LogOut className="mr-2 h-4 w-4" /> : <LogIn className="mr-2 h-4 w-4" />}
+
+                {session ? (
+                  <LogoutButton isConfirm>
+                    <span>Logout</span>
+                  </LogoutButton>
+                ) : (
+                  <LoginButton asChild>
+                    <span>Login</span>
+                  </LoginButton>
+                )}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

@@ -13,7 +13,7 @@ function LandingPage() {
       <LogoCloud />
       <FeatureSection />
       <SocialProof />
-      <CTA />
+      {/* <CTA /> */}
       <FAQ />
       <PricingSection />
     </>

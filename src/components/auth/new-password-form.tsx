@@ -74,7 +74,7 @@ export default function NewPasswordForm() {
           <Button type="submit" className="w-full" disabled={isLoading}>
             Reset password
           </Button>
-          <Button variant="outline" className="w-full" asChild>
+          <Button variant="link" className="w-full" asChild>
             <Link href="/auth/login">Back to Login</Link>
           </Button>
         </div>
