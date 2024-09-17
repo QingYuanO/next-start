@@ -1,3 +1,6 @@
+'use client';
+
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { getServerAuthSession } from '@/server/auth';
 import { LogIn, LogOut, Menu } from 'lucide-react';
@@ -15,8 +18,19 @@ import { LoginButton } from './auth/login-button';
 import { LogoutButton } from './auth/logout-button';
 import ThemeToggleBtn from './theme-provider/theme-button';
 
-export async function Navbar() {
-  const session = await getServerAuthSession();
+export function Navbar() {
+  const session = useSession();
+
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -27,9 +41,15 @@ export async function Navbar() {
           </a>
         </div>
         <nav className="hidden items-center space-x-6 text-sm sm:flex">
-          <Link href="#features">Features</Link>
-          <Link href="#pricing">Pricing</Link>
-          <Link href="#contact">Contact</Link>
+          <Link href="#features" onClick={e => handleSmoothScroll(e, 'features')}>
+            Features
+          </Link>
+          <Link href="#pricing" onClick={e => handleSmoothScroll(e, 'pricing')}>
+            Pricing
+          </Link>
+          <Link href="#contact" onClick={e => handleSmoothScroll(e, 'contact')}>
+            Contact
+          </Link>
         </nav>
         <div className="flex items-center justify-between space-x-2">
           <div className="flex w-full flex-1 items-center gap-2.5 md:w-auto md:flex-none">
@@ -56,26 +76,26 @@ export async function Navbar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem>
-                <a href="#features" className="w-full">
+                <Link href="#features" onClick={e => handleSmoothScroll(e, 'features')} className="w-full">
                   Features
-                </a>
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#pricing" className="w-full">
+                <Link href="#pricing" onClick={e => handleSmoothScroll(e, 'pricing')} className="w-full">
                   Pricing
-                </a>
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#contact" className="w-full">
+                <Link href="#contact" onClick={e => handleSmoothScroll(e, 'contact')} className="w-full">
                   Contact
-                </a>
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
                 {session ? <LogOut className="mr-2 h-4 w-4" /> : <LogIn className="mr-2 h-4 w-4" />}
 
                 {session ? (
-                  <LogoutButton isConfirm>
+                  <LogoutButton>
                     <span>Logout</span>
                   </LogoutButton>
                 ) : (

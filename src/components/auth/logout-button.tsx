@@ -26,7 +26,7 @@ export const LogoutButton = ({ children, isConfirm }: LogoutButtonProps) => {
 
   if (isConfirm) {
     return (
-      <AlertDialog>
+      <AlertDialog   >
         <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>

@@ -5,6 +5,7 @@ import ThemeProvider from '@/components/theme-provider';
 
 import './globals.css';
 
+import { SessionProvider } from 'next-auth/react';
 import { TRPCReactProvider } from '@/trpc/react';
 
 import { Footer } from '@/components/footer';
@@ -21,13 +22,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <TRPCReactProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            <Navbar />
-            {children}
-            <Footer />
-          </ThemeProvider>
-        </TRPCReactProvider>
+        <SessionProvider>
+          <TRPCReactProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+              <Navbar />
+              {children}
+              <Footer />
+            </ThemeProvider>
+          </TRPCReactProvider>
+        </SessionProvider>
       </body>
     </html>
   );
