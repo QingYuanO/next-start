@@ -1,17 +1,16 @@
 import Link from 'next/link';
 import { getServerAuthSession } from '@/server/auth';
-import { api } from '@/trpc/server';
 import { Menu } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
+import { LoginButton } from './auth/login-button';
+import { LogoutButton } from './auth/logout-button';
 import ThemeToggleBtn from './theme-provider/theme-button';
 
 export async function Navbar() {
   const session = await getServerAuthSession();
-  const hello = await api.post.hello({ text: 'from tRPC' });
-  console.log(hello);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -30,9 +29,15 @@ export async function Navbar() {
           <div className="flex w-full flex-1 items-center gap-2.5 md:w-auto md:flex-none">
             <ThemeToggleBtn />
 
-            <Button variant="ghost" asChild>
-              <Link href={session ? '/api/auth/signout' : '/api/auth/signin'}>{session ? 'Sign out' : 'Sign in'}</Link>
-            </Button>
+            {session ? (
+              <LogoutButton isConfirm>
+                <Button variant="ghost">Logout</Button>
+              </LogoutButton>
+            ) : (
+              <LoginButton asChild>
+                <Button variant="ghost">Login</Button>
+              </LoginButton>
+            )}
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

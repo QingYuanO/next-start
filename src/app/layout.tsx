@@ -5,6 +5,8 @@ import ThemeProvider from '@/components/theme-provider';
 
 import './globals.css';
 
+import { TRPCReactProvider } from '@/trpc/react';
+
 import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar';
 
@@ -19,11 +21,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <Navbar />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <TRPCReactProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <Navbar />
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </TRPCReactProvider>
       </body>
     </html>
   );
