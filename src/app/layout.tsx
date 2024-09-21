@@ -25,9 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SessionProvider>
           <TRPCReactProvider>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-              <Navbar />
               {children}
-              <Footer />
             </ThemeProvider>
           </TRPCReactProvider>
         </SessionProvider>

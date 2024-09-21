@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
 
@@ -13,7 +14,13 @@ const Feature: FC<FeatureProps> = ({ title, description, imageUrl, isImageLeft }
   <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-24">
     {isImageLeft && (
       <div className="order-1 md:order-1">
-        <img className="w-full max-w-2xl rounded-xl shadow-xl ring-1 ring-gray-400/10" src={imageUrl} alt={title} />
+        <Image
+          width={1000}
+          height={1000}
+          className="w-full max-w-2xl rounded-xl shadow-xl ring-1 ring-gray-400/10 dark:brightness-[0.2] dark:grayscale"
+          src={imageUrl}
+          alt={title}
+        />
       </div>
     )}
     <div className={`order-2 ${isImageLeft ? 'md:order-2' : 'md:order-1'}`}>
@@ -25,7 +32,13 @@ const Feature: FC<FeatureProps> = ({ title, description, imageUrl, isImageLeft }
     </div>
     {!isImageLeft && (
       <div className="order-1 md:order-2">
-        <img className="w-full max-w-2xl rounded-xl shadow-xl ring-1 ring-gray-400/10" src={imageUrl} alt={title} />
+        <Image
+          width={1000}
+          height={1000}
+          className="w-full max-w-2xl rounded-xl shadow-xl ring-1 ring-gray-400/10 dark:brightness-[0.2] dark:grayscale"
+          src={imageUrl}
+          alt={title}
+        />
       </div>
     )}
   </div>
@@ -36,13 +49,13 @@ export const FeatureSection: FC = () => {
     {
       title: 'Code Export and Integration',
       description: 'Export clean, optimized code that seamlessly integrates with your existing projects, saving valuable development time.',
-      imageUrl: 'https://ui.convertfa.st/images/convertfast-ui-light-demo.png',
+      imageUrl: '/placeholder.png',
       isImageLeft: true,
     },
     {
       title: 'Responsive Design',
       description: 'Create mobile-friendly landing pages that look great on all devices, ensuring a consistent user experience.',
-      imageUrl: 'https://ui.convertfa.st/images/convertfast-demo.png',
+      imageUrl: '/placeholder.png',
       isImageLeft: false,
     },
   ];

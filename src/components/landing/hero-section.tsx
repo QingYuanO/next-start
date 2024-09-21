@@ -26,19 +26,12 @@ export const HeroSection: FC = () => {
           </div>
         </div>
 
-        <img
+        <Image
           alt="app screenshot"
-          src="https://ui.convertfa.st/images/graphic-walker-light-2.png"
+          src="/placeholder.png"
           width={2432}
           height={1442}
-          className="block rounded-md border shadow-2xl dark:hidden sm:mt-12"
-        />
-        <img
-          alt="app screenshot"
-          src="https://ui.convertfa.st/images/graphic-walker-dark-2.png"
-          width={2432}
-          height={1442}
-          className="hidden rounded-md border shadow-2xl dark:block sm:mt-12"
+          className="block rounded-md border shadow-2xl dark:brightness-[0.2] dark:grayscale sm:mt-12"
         />
       </div>
     </div>
