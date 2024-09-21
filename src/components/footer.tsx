@@ -1,7 +1,9 @@
-import { Facebook, Github, Instagram, Twitter } from 'lucide-react';
+import Image from 'next/image';
+import { SiGithub, SiWechat, SiX } from '@icons-pack/react-simple-icons';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 
 export function Footer() {
   return (
@@ -86,21 +88,24 @@ export function Footer() {
 
         {/* Social Links */}
         <div className="mt-8 flex justify-center space-x-6">
-          <a href="#" className="text-gray-400 hover:text-gray-500">
-            <span className="sr-only">Facebook</span>
-            <Facebook className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-gray-400 hover:text-gray-500">
-            <span className="sr-only">Instagram</span>
-            <Instagram className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-gray-400 hover:text-gray-500">
+          <div className="text-gray-400 hover:text-gray-500">
+            <span className="sr-only">Wechat</span>
+            <Popover>
+              <PopoverTrigger>
+                <SiWechat />
+              </PopoverTrigger>
+              <PopoverContent className="flex items-center justify-center">
+                <Image src="/wechat.jpg" alt="Wechat" width={160} height={160} />
+              </PopoverContent>
+            </Popover>
+          </div>
+          <a href="https://x.com/qingyuano" target="_blank" className="text-gray-400 hover:text-gray-500">
             <span className="sr-only">Twitter</span>
-            <Twitter className="h-6 w-6" />
+            <SiX className="h-6 w-6" />
           </a>
-          <a href="#" className="text-gray-400 hover:text-gray-500">
+          <a href="https://github.com/QingYuanO" target="_blank" className="text-gray-400 hover:text-gray-500">
             <span className="sr-only">GitHub</span>
-            <Github className="h-6 w-6" />
+            <SiGithub className="h-6 w-6" />
           </a>
         </div>
 

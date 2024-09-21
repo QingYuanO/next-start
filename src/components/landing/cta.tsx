@@ -1,4 +1,6 @@
-import { FC } from 'react';
+import { type FC } from 'react';
+import Link from 'next/link';
+import { SiGithub } from '@icons-pack/react-simple-icons';
 
 import { Button } from '@/components/ui/button';
 
@@ -18,11 +20,11 @@ export const CTA: FC = () => {
             difference.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" variant="outline" className="w-full sm:w-auto">
-              Get started for free
-            </Button>
-            <Button size="lg" className="w-full sm:w-auto">
-              View documentation
+            <Button size="lg" className="flex w-full items-center gap-2 sm:w-auto">
+              <SiGithub className="size-4" />
+              <Link href="https://github.com/QingYuanO/next-start" target="_blank">
+                Star on GitHub
+              </Link>
             </Button>
           </div>
           <p className="mt-6 text-sm text-muted-foreground opacity-75">No credit card required. Start building in minutes.</p>

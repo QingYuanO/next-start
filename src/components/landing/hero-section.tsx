@@ -1,6 +1,8 @@
 // import { BGShapeCircle } from "@/components/bg-shape-circle";
-import { FC } from 'react';
+import { type FC } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { SiGithub } from '@icons-pack/react-simple-icons';
 
 import { Button } from '@/components/ui/button';
 
@@ -18,10 +20,15 @@ export const HeroSection: FC = () => {
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button size="lg" className="w-full sm:w-auto" asChild>
-              <a href="#start">Create Account</a>
+              <Link href="https://github.com/QingYuanO/next-start" target="_blank">
+                Get Started
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto">
-              <code className="rounded p-1">Start now</code>
+            <Button variant="outline" size="lg" className="w-full sm:w-auto flex items-center gap-2">
+              <SiGithub className="size-4" />
+              <Link href="https://github.com/QingYuanO/next-start" target="_blank">
+                Star on GitHub
+              </Link>
             </Button>
           </div>
         </div>
