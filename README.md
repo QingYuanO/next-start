@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Boilerplate and Starter for Next.js 14+, Tailwind CSS 3.4, and TypeScript.
 
-## Getting Started
+<p align="center">
+  <a href="#"><img height="300" src="https://github.com/user-attachments/assets/4d1d0eca-c6e5-40c5-8022-335fe72a5765" alt="Next js starter banner"></a>
+</p>
 
-First, run the development server:
+🚀 Boilerplate and Starter for Next.js with App Router, Tailwind CSS, and TypeScript ⚡️ Prioritizing developer experience first: Next.js, TypeScript, ESLint, Prettier, VSCode, Tailwind CSS, Authentication with [Authjs](https://authjs.dev/), Database with Prisma (PostgreSQL, SQLite, and MySQL)and more. Ready for Next.js 15.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Developer experience first, extremely flexible code structure and only keep what you need:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- ⚡ [Next.js](https://nextjs.org) with App Router support
+- 🔥 Type checking [TypeScript](https://www.typescriptlang.org)
+- 💎 Integrate with [Tailwind CSS](https://tailwindcss.com)
+- ✅ Strict Mode for TypeScript and React 18
+- 🔒 Authentication with [Authjs](https://authjs.dev/): Sign up, Sign in, Sign out, Forgot password, Reset password, and more.
+- 📦 Type-safe ORM with Prisma, compatible with PostgreSQL, SQLite, and MySQL
+- ♻️ Type-safe environment variables with T3 Env
+- ⌨️ Form handling with React Hook Form
+- 🔴 Validation library with Zod
+- 💖 Code Formatter with [Prettier](https://prettier.io)
